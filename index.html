@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Brain Rot Scale (BRS)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img src="images/brain_cartoon.png" alt="Brain Rot" class="logo">
+      <h1 id="site-title">Brain Rot Scale (BRS)</h1>
+    </div>
+    <div class="controls">
+      <button id="lang-btn" class="btn ghost">AR</button>
+    </div>
+  </header>
+
+  <div id="welcome-banner" class="banner">🧠 Welcome — Brain Rot Scale (BRS): 16-question self-assessment</div>
+
+  <main class="container">
+    <section id="quiz-section" class="card">
+      <h2 id="quiz-title">Instructions</h2>
+      <p id="instructions">Please answer all 16 core questions using the 1–5 scale (1 = Never, 5 = Always). After submitting you'll see your total score (16–80), classification, explanation and suggested plan.</p>
+
+      <form id="quiz-form" class="quiz-form"></form>
+
+      <details class="card small">
+        <summary><strong>Optional: Additional clinical / daily-life questions</strong></summary>
+        <div class="optional-questions" id="optional-area"></div>
+      </details>
+
+      <div class="actions">
+        <button id="submit-btn" class="btn primary">Submit</button>
+        <button id="reset-btn" class="btn secondary">Reset</button>
+      </div>
+    </section>
+
+    <section id="result-section" class="card hidden">
+      <h2 id="result-heading">Your BRS Result</h2>
+      <p id="score-display"></p>
+      <h3 id="level-display"></h3>
+      <p id="explanation"></p>
+
+      <div class="plan">
+        <h4 id="plan-title">Suggested Plan</h4>
+        <ul id="plan-list"></ul>
+      </div>
+
+      <div class="brain-images">
+        <img src="images/brain_real.png" alt="Real Brain" class="brain-real">
+        <img src="images/brain_cartoon.png" alt="Cartoon Brain" class="brain-cartoon">
+      </div>
+
+      <div class="actions">
+        <button id="back-btn" class="btn secondary">Back</button>
+        <button id="copy-btn" class="btn">Copy Result</button>
+        <button id="save-btn" class="btn primary">Save Result</button>
+      </div>
+    </section>
+
+    <section id="followup-section" class="card small">
+      <h4>Follow-up (optional)</h4>
+      <label><input type="radio" name="follow" value="yes"> Yes, I agree to be contacted after 3 months</label><br>
+      <label><input type="radio" name="follow" value="no" checked> No, thanks</label>
+      <div id="phone-area" class="hidden">
+        <label>Phone number (optional): <input type="tel" id="phone-input" placeholder="+20..."></label>
+      </div>
+    </section>
+
+    <section id="notes" class="card small">
+      <h4>Note</h4>
+      <p id="note-text">This questionnaire is informational and not a medical diagnosis. If you are worried about memory or mood, consult a professional.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small id="footer-text">Brain Rot Scale (BRS)</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
