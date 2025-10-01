@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Brain Rot - 10 Questions Test</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img src="images/brain_cartoon.png" alt="Brain Rot" class="logo">
+      <h1 id="site-title">Brain Rot</h1>
+    </div>
+    <div class="controls">
+      <button id="lang-btn" class="btn ghost">AR</button>
+    </div>
+  </header>
+
+  <div id="welcome-banner" class="banner">🧠 Welcome to the Brain Rot 10-question self-test — Check your focus & memory</div>
+
+  <main class="container">
+    <section id="quiz-section" class="card">
+      <h2 id="quiz-title">Answer the 10 questions</h2>
+      <form id="quiz-form" class="quiz-form"></form>
+      <div class="actions">
+        <button id="submit-btn" class="btn primary">Submit</button>
+        <button id="reset-btn" class="btn secondary">Reset</button>
+      </div>
+    </section>
+
+    <section id="result-section" class="card hidden">
+      <h2 id="result-heading">Your Result</h2>
+      <p id="score-display"></p>
+      <h3 id="level-display"></h3>
+      <p id="explanation"></p>
+
+      <div class="plan">
+        <h4 id="plan-title">Treatment Plan</h4>
+        <ul id="plan-list"></ul>
+      </div>
+
+      <div class="brain-images">
+        <img src="images/brain_real.png" alt="Real Brain" class="brain-real">
+        <img src="images/brain_cartoon.png" alt="Cartoon Brain" class="brain-cartoon">
+      </div>
+
+      <div class="actions">
+        <button id="back-btn" class="btn secondary">Back</button>
+        <button id="share-btn" class="btn">Copy Result</button>
+      </div>
+    </section>
+
+    <section id="notes" class="card">
+      <h4>Note</h4>
+      <p id="note-text">This test is informational only and not a medical diagnosis. If you have serious concerns consult a professional.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small id="footer-text">Brain Rot — Self-check tool</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
