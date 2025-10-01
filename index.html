@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brain Rot</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1 id="title">Brain Rot</h1>
+    <button id="lang-toggle">AR</button>
+  </header>
+
+  <div id="welcome-banner">
+    🧠 Welcome to Brain Rot Test — Discover your level!
+  </div>
+
+  <main>
+    <section>
+      <img src="images/brain_cartoon.png" alt="Cartoon Brain" class="brain-img">
+      <h2 id="questions-title">Answer the following questions:</h2>
+      <form id="quiz-form"></form>
+      <button id="submit-btn">Submit</button>
+    </section>
+
+    <section id="result-section" style="display:none;">
+      <h2 id="result-title">Your Brain Rot Result:</h2>
+      <p id="result-text"></p>
+      <h3 id="plan-title">Suggested Recovery Plan:</h3>
+      <p id="plan-text"></p>
+      <img src="images/brain_real.png" alt="Real Brain" class="brain-img">
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
