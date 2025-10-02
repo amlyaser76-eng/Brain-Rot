@@ -1,186 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>اختبار Brain Rot Scale – BRS</title>
-<style>
-  body {font-family:"Segoe UI","Noto Kufi Arabic",sans-serif; background:#f3f7f9; color:#0f172a; line-height:1.6; margin:0;}
-  header {text-align:center; padding:20px; background:#e2f0ff;}
-  .container {max-width:900px; margin:auto; padding:20px;}
-  .card {background:#fff; padding:20px; border-radius:12px; margin-bottom:20px; box-shadow:0 4px 20px rgba(0,0,0,0.08);}
-  h1 {font-size:1.5rem; margin:0;}
-  h2 {margin-top:0;}
-  .q {margin:12px 0;}
-  .likert {display:flex; gap:8px; justify-content:flex-end; direction:rtl;}
-  .likert input {display:none;}
-  .likert label {padding:6px 12px; border:1px solid #ccc; border-radius:6px; cursor:pointer;}
-  .likert input:checked+label {background:#5b9ea0; color:#fff; border:none;}
-  .btn {display:block; width:100%; padding:12px; border:none; border-radius:10px; background:#2f855a; color:#fff; font-size:1rem; cursor:pointer; margin-top:12px;}
-  .result {margin-top:16px; padding:14px; border-radius:10px; background:#eefcf1; display:none;}
-  input[type=text], input[type=tel] {padding:8px; border:1px solid #ccc; border-radius:8px; margin-top:6px; width:100%;}
-  footer {text-align:center; color:#555; padding:16px;}
-</style>
-</head>
-<body>
-<header>
-  <h1>اختبار Brain Rot Scale – BRS</h1>
-  <p>قيّم نفسك من 1 (أبدًا) إلى 5 (دائمًا)</p>
-</header>
-
-<div class="container">
-  <div class="card">
-    <h2>📝 بيانات شخصية</h2>
-    <label>الاسم:</label>
-    <input type="text" id="username" placeholder="اكتب اسمك هنا">
-    <br><br>
-    <label>رقم الهاتف:</label>
-    <input type="tel" id="userphone" placeholder="مثال: 01012345678">
-  </div>
-
-  <div class="card" id="questions">
-    <h2>🟢 القسم 1: نمط الاستخدام</h2>
-    <div class="q">1. كم ساعة تقضيها يوميًا على TikTok / Reels / Shorts؟
-      <div class="likert">
-        <input type="radio" id="q1-1" name="q1" value="1"><label for="q1-1">1</label>
-        <input type="radio" id="q1-2" name="q1" value="2"><label for="q1-2">2</label>
-        <input type="radio" id="q1-3" name="q1" value="3"><label for="q1-3">3</label>
-        <input type="radio" id="q1-4" name="q1" value="4"><label for="q1-4">4</label>
-        <input type="radio" id="q1-5" name="q1" value="5"><label for="q1-5">5</label>
-      </div>
-    </div>
-    <div class="q">2. هل تفتح هذه التطبيقات بشكل تلقائي (بدون تفكير)؟
-      <div class="likert">
-        <input type="radio" id="q2-1" name="q2" value="1"><label for="q2-1">1</label>
-        <input type="radio" id="q2-2" name="q2" value="2"><label for="q2-2">2</label>
-        <input type="radio" id="q2-3" name="q2" value="3"><label for="q2-3">3</label>
-        <input type="radio" id="q2-4" name="q2" value="4"><label for="q2-4">4</label>
-        <input type="radio" id="q2-5" name="q2" value="5"><label for="q2-5">5</label>
-      </div>
-    </div>
-    <div class="q">3. هل تجد صعوبة في التوقف بعد مشاهدة مقطع قصير واحد؟
-      <div class="likert">
-        <input type="radio" id="q3-1" name="q3" value="1"><label for="q3-1">1</label>
-        <input type="radio" id="q3-2" name="q3" value="2"><label for="q3-2">2</label>
-        <input type="radio" id="q3-3" name="q3" value="3"><label for="q3-3">3</label>
-        <input type="radio" id="q3-4" name="q3" value="4"><label for="q3-4">4</label>
-        <input type="radio" id="q3-5" name="q3" value="5"><label for="q3-5">5</label>
-      </div>
-    </div>
-    <div class="q">4. هل تشاهد مقاطع قصيرة حتى وأنت تعرف أن عندك مهام أهم؟
-      <div class="likert">
-        <input type="radio" id="q4-1" name="q4" value="1"><label for="q4-1">1</label>
-        <input type="radio" id="q4-2" name="q4" value="2"><label for="q4-2">2</label>
-        <input type="radio" id="q4-3" name="q4" value="3"><label for="q4-3">3</label>
-        <input type="radio" id="q4-4" name="q4" value="4"><label for="q4-4">4</label>
-        <input type="radio" id="q4-5" name="q4" value="5"><label for="q4-5">5</label>
-      </div>
-    </div>
-
-    <h2>🔵 القسم 2: أعراض معرفية</h2>
-    <div class="q">5. بعد مشاهدة محتوى قصير، هل تجد صعوبة في التركيز على الدراسة/العمل؟
-      <div class="likert">
-        <input type="radio" id="q5-1" name="q5" value="1"><label for="q5-1">1</label>
-        <input type="radio" id="q5-2" name="q5" value="2"><label for="q5-2">2</label>
-        <input type="radio" id="q5-3" name="q5" value="3"><label for="q5-3">3</label>
-        <input type="radio" id="q5-4" name="q5" value="4"><label for="q5-4">4</label>
-        <input type="radio" id="q5-5" name="q5" value="5"><label for="q5-5">5</label>
-      </div>
-    </div>
-    <div class="q">6. هل تشعر أن ذاكرتك ضعفت أو تنسى بسرعة بعد فترات استخدام طويلة؟
-      <div class="likert">
-        <input type="radio" id="q6-1" name="q6" value="1"><label for="q6-1">1</label>
-        <input type="radio" id="q6-2" name="q6" value="2"><label for="q6-2">2</label>
-        <input type="radio" id="q6-3" name="q6" value="3"><label for="q6-3">3</label>
-        <input type="radio" id="q6-4" name="q6" value="4"><label for="q6-4">4</label>
-        <input type="radio" id="q6-5" name="q6" value="5"><label for="q6-5">5</label>
-      </div>
-    </div>
-    <div class="q">7. هل تواجه صعوبة في قراءة كتاب أو مشاهدة فيلم طويل بسبب فقدان الصبر؟
-      <div class="likert">
-        <input type="radio" id="q7-1" name="q7" value="1"><label for="q7-1">1</label>
-        <input type="radio" id="q7-2" name="q7" value="2"><label for="q7-2">2</label>
-        <input type="radio" id="q7-3" name="q7" value="3"><label for="q7-3">3</label>
-        <input type="radio" id="q7-4" name="q7" value="4"><label for="q7-4">4</label>
-        <input type="radio" id="q7-5" name="q7" value="5"><label for="q7-5">5</label>
-      </div>
-    </div>
-    <div class="q">8. هل تلاحظ أن انتباهك يتشتت بسهولة أكثر من قبل؟
-      <div class="likert">
-        <input type="radio" id="q8-1" name="q8" value="1"><label for="q8-1">1</label>
-        <input type="radio" id="q8-2" name="q8" value="2"><label for="q8-2">2</label>
-        <input type="radio" id="q8-3" name="q8" value="3"><label for="q8-3">3</label>
-        <input type="radio" id="q8-4" name="q8" value="4"><label for="q8-4">4</label>
-        <input type="radio" id="q8-5" name="q8" value="5"><label for="q8-5">5</label>
-      </div>
-    </div>
-
-    <h2>🟣 القسم 3: نفسي / عاطفي</h2>
-    <div class="q">9. هل تشعر بفراغ أو “دماغك فاضي” بعد ساعات من التصفح؟
-      <div class="likert">
-        <input type="radio" id="q9-1" name="q9" value="1"><label for="q9-1">1</label>
-        <input type="radio" id="q9-2" name="q9" value="2"><label for="q9-2">2</label>
-        <input type="radio" id="q9-3" name="q9" value="3"><label for="q9-3">3</label>
-        <input type="radio" id="q9-4" name="q9" value="4"><label for="q9-4">4</label>
-        <input type="radio" id="q9-5" name="q9" value="5"><label for="q9-5">5</label>
-      </div>
-    </div>
-    <div class="q">10. هل يجيك إحساس بالذنب أو الندم بعد قضاء وقت طويل في المقاطع القصيرة؟
-      <div class="likert">
-        <input type="radio" id="q10-1" name="q10" value="1"><label for="q10-1">1</label>
-        <input type="radio" id="q10-2" name="q10" value="2"><label for="q10-2">2</label>
-        <input type="radio" id="q10-3" name="q10" value="3"><label for="q10-3">3</label>
-        <input type="radio" id="q10-4" name="q10" value="4"><label for="q10-4">4</label>
-        <input type="radio" id="q10-5" name="q10" value="5"><label for="q10-5">5</label>
-      </div>
-    </div>
-    <div class="q">11. هل تجد صعوبة في الاستمتاع بأنشطة عادية مقارنة بالمتعة السريعة من الفيديوهات؟
-      <div class="likert">
-        <input type="radio" id="q11-1" name="q11" value="1"><label for="q11-1">1</label>
-        <input type="radio" id="q11-2" name="q11" value="2"><label for="q11-2">2</label>
-        <input type="radio" id="q11-3" name="q11" value="3"><label for="q11-3">3</label>
-        <input type="radio" id="q11-4" name="q11" value="4"><label for="q11-4">4</label>
-        <input type="radio" id="q11-5" name="q11" value="5"><label for="q11-5">5</label>
-      </div>
-    </div>
-    <div class="q">12. هل تشعر بالقلق أو التوتر لو لم تفتح التطبيقات لفترة طويلة؟
-      <div class="likert">
-        <input type="radio" id="q12-1" name="q12" value="1"><label for="q12-1">1</label>
-        <input type="radio" id="q12-2" name="q12" value="2"><label for="q12-2">2</label>
-        <input type="radio" id="q12-3" name="q12" value="3"><label for="q12-3">3</label>
-        <input type="radio" id="q12-4" name="q12" value="4"><label for="q12-4">4</label>
-        <input type="radio" id="q12-5" name="q12" value="5"><label for="q12-5">5</label>
-      </div>
-    </div>
-
-    <h2>🟠 القسم 4: التأثير السلوكي</h2>
-    <div class="q">13. هل يؤثر استخدامك على نومك (تأخر نوم، نوم متقطع)؟
-      <div class="likert">
-        <input type="radio" id="q13-1" name="q13" value="1"><label for="q13-1">1</label>
-        <input type="radio" id="q13-2" name="q13" value="2"><label for="q13-2">2</label>
-        <input type="radio" id="q13-3" name="q13" value="3"><label for="q13-3">3</label>
-        <input type="radio" id="q13-4" name="q13" value="4"><label for="q13-4">4</label>
-        <input type="radio" id="q13-5" name="q13" value="5"><label for="q13-5">5</label>
-      </div>
-    </div>
-    <div class="q">14. هل يؤثر على إنجازك الدراسي أو المهني؟
-      <div class="likert">
-        <input type="radio" id="q14-1" name="q14" value="1"><label for="q14-1">1</label>
-        <input type="radio" id="q14-2" name="q14" value="2"><label for="q14-2">2</label>
-        <input type="radio" id="q14-3" name="q14" value="3"><label for="q14-3">3</label>
-        <input type="radio" id="q14-4" name="q14" value="4"><label for="q14-4">4</label>
-        <input type="radio" id="q14-5" name="q14" value="5"><label for="q14-5">5</label>
-      </div>
-    </div>
-    <div class="q">15. هل تجد نفسك تعطي الأولوية للمحتوى الرقمي على حساب علاقاتك أو نشاطاتك اليومية؟
-      <div class="likert">
-        <input type="radio" id="q15-1" name="q15" value="1"><label for="q15-1">1</label>
-        <input type="radio" id="q15-2" name="q15" value="2"><label for="q15-2">2</label>
-        <input type="radio" id="q15-3" name="q15" value="3"><label for="q15-3">3</label>
-        <input type="radio" id="q15-4" name="q15" value="4"><label for="q15-4">4</label>
-        <input type="radio" id="q15-5" name="q15" value="5"><label for="q15-5">5</label>
-      </div>
-    </div>
-    <div class="q">16. هل حاولت تقليل الاستخدام وفشلت؟
-      <div class="likert">
-        <input type="radio" id="q16-1" name="q16" value="1"><label for="q16-1">
