@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brain Rot Scale</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 id="title">🧠 Brain Rot Scale – مقياس تآكل الدماغ</h1>
+      <button onclick="toggleLang()" id="langToggle">English</button>
+    </header>
+
+    <section class="intro">
+      <img src="brain-anim.gif" alt="Brain Animation" class="brain-anim">
+      <p id="introText">هذا الاختبار يساعدك في تقييم تأثير المقاطع القصيرة على تركيزك وصحتك النفسية.</p>
+    </section>
+
+    <form id="quizForm">
+      <div class="input-group">
+        <label for="name" id="nameLabel">الاسم:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="input-group">
+        <label for="phone" id="phoneLabel">رقم الهاتف:</label>
+        <input type="text" id="phone" name="phone" required>
+      </div>
+
+      <div id="questions"></div>
+
+      <button type="button" onclick="calculate()" id="calcBtn">احسب النتيجة</button>
+    </form>
+
+    <section id="result">
+      <h2 id="resultTitle">النتيجة</h2>
+      <div id="resultSummary"></div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
