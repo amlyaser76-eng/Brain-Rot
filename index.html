@@ -1,86 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>اختبار تآكل الدماغ</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اختبار تآكل الدماغ – BRS-E V4</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app">
-    <header class="topbar">
-      <div class="brand">
-        <div class="logo">🧠</div>
-        <div>
-          <h1 id="title" data-ar="اختبار تآكل الدماغ" data-en="Brain Rot Scale (BRS)">اختبار تآكل الدماغ</h1>
-          <div id="subtitle" data-ar="أداة مبسطة لقياس أثر المحتوى القصير على التركيز والسلوك" data-en="A short tool to measure short‑video impact on attention & behavior">أداة مبسطة لقياس أثر المحتوى القصير على التركيز والسلوك</div>
-        </div>
-      </div>
-      <div class="controls">
-        <div class="lang">
-          <button id="btnAr" class="lang-btn active">العربية</button>
-          <button id="btnEn" class="lang-btn">English</button>
-        </div>
-      </div>
-    </header>
+  <div class="background"></div>
 
-    <main class="main">
-      <div class="slides" id="slides">
-        <!-- Slide 0: Intro + name/phone -->
-        <section class="slide" data-index="0">
-          <div class="card intro">
-            <h2 data-ar="مرحباً" data-en="Welcome">مرحباً</h2>
-            <p class="lead" id="introDesc" data-ar="اختبار تآكل الدماغ (BRS) يساعدك على معرفة مدى تأثير مشاهدة المقاطع القصيرة على تركيزك وذاكرتك." data-en="The Brain Rot Scale (BRS) helps you see how short-video exposure affects your attention and memory.">اختبار تآكل الدماغ (BRS) يساعدك على معرفة مدى تأثير مشاهدة المقاطع القصيرة على تركيزك وذاكرتك.</p>
+  <header>
+    <div class="language-toggle" id="langToggle">
+      <img src="assets/icons/globe.svg" alt="تبديل اللغة">
+    </div>
+  </header>
 
-            <div class="form-row">
-              <label for="nameInput" data-ar="الاسم" data-en="Name">الاسم</label>
-              <input id="nameInput" type="text" placeholder="مثال: أحمد علي">
-            </div>
-            <div class="form-row">
-              <label for="phoneInput" data-ar="الهاتف" data-en="Phone">الهاتف</label>
-              <input id="phoneInput" type="tel" placeholder="+20 10 1234 5678">
-            </div>
+  <main>
+    <section class="test-description">
+      <h1>اختبار تآكل الدماغ – Brain Rot Scale (BRS-E V4)</h1>
+      <p>هذا الاختبار يقيّم مدى تأثير استخدام المحتوى الرقمي القصير على حياتك اليومية، التركيز، والعلاقات الاجتماعية. جاوب بصدق على جميع الأسئلة حسب تجربتك.</p>
+    </section>
 
-            <div class="actions">
-              <button id="startBtn" class="btn primary" data-ar="ابدأ الاختبار" data-en="Start Test">ابدأ الاختبار</button>
-            </div>
-          </div>
-        </section>
+    <section class="user-info">
+      <input type="text" id="name" placeholder="الاسم">
+      <input type="tel" id="phone" placeholder="رقم الهاتف">
+    </section>
 
-        <!-- Slides 1..5: Five sections rendered by JS -->
+    <section class="progress-bar">
+      <div class="progress"></div>
+    </section>
 
-        <!-- Slide last: result -->
-        <section class="slide" data-index="6">
-          <div class="card result">
-            <h2 id="resultTitle" data-ar="النتيجة" data-en="Result">النتيجة</h2>
-            <div class="result-box">
-              <div class="percent" id="finalPercent">0%</div>
-              <div class="raw" id="rawScore">0 / 110</div>
-              <div class="severity" id="finalSeverity">-</div>
-              <p class="advice" id="finalAdvice">-</p>
-              <p class="usermeta" id="finalUser">-</p>
-              <div class="result-actions">
-                <button id="restartBtn" class="btn primary" data-ar="إعادة الاختبار" data-en="Restart">إعادة الاختبار</button>
-                <button id="downloadBtn" class="btn ghost" data-ar="تحميل تقرير" data-en="Download Report">تحميل تقرير</button>
-              </div>
-            </div>
-          </div>
-        </section>
+    <section class="test-questions" id="questions">
+      <!-- الأسئلة ستُملأ ديناميكيًا بواسطة script.js -->
+    </section>
 
-      </div> <!-- slides -->
-    </main>
-
-    <footer class="rightbar">
-      <div class="progress-wrap">
-        <div class="progress-bar" id="progressBar"></div>
-      </div>
-      <div class="live">
-        <div class="live-percent" id="livePercent">0%</div>
-        <div class="live-text" id="liveText">التقدم</div>
-      </div>
-    </footer>
-  </div>
+    <button id="resetTest">إعادة الاختبار</button>
+  </main>
 
   <script src="script.js"></script>
 </body>
