@@ -3,41 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>اختبار Brain Rot Scale</title>
+  <title>Brain Rot Scale</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="intro">
-    <div class="intro-content">
-      <h1>🧠 اختبار Brain Rot Scale (BRS)</h1>
-      <p>اختبر مدى تأثر تركيزك بالمحتوى القصير.</p>
-      <button id="startBtn">ابدأ الاختبار</button>
-    </div>
-  </div>
+  <div class="container">
+    <h1>🧠 مقياس Brain Rot</h1>
+    <p class="intro">اختبار مبسط لمعرفة تأثير استخدام المقاطع القصيرة على التركيز والصحة الذهنية.</p>
+    
+    <form id="brsForm">
+      <label>الاسم:</label>
+      <input type="text" id="name" name="name" required><br><br>
+      
+      <label>رقم الهاتف:</label>
+      <input type="tel" id="phone" name="phone" required><br><br>
 
-  <div id="form-container" class="hidden">
-    <div class="question-card">
-      <h2 id="sectionTitle">معلوماتك الشخصية</h2>
-      <div class="input-group">
-        <label>الاسم:</label>
-        <input type="text" id="nameInput" placeholder="اكتب اسمك هنا">
+      <h2>Section 1: أنماط الاستخدام</h2>
+      <div class="question">1. كم ساعة تقضيها يوميًا على TikTok / Reels / Shorts؟
+        <select name="q1" required>
+          <option value="1">أبدًا</option>
+          <option value="2">نادرًا</option>
+          <option value="3">أحيانًا</option>
+          <option value="4">غالبًا</option>
+          <option value="5">دائمًا</option>
+        </select>
       </div>
-      <div class="input-group">
-        <label>رقم الهاتف:</label>
-        <input type="text" id="phoneInput" placeholder="اكتب رقم هاتفك">
+
+      <div class="question">2. هل تفتح هذه التطبيقات بشكل تلقائي (بدون تفكير)؟
+        <select name="q2" required>
+          <option value="1">أبدًا</option>
+          <option value="2">نادرًا</option>
+          <option value="3">أحيانًا</option>
+          <option value="4">غالبًا</option>
+          <option value="5">دائمًا</option>
+        </select>
       </div>
-      <button id="nextBtn">التالي</button>
-    </div>
-  </div>
 
-  <div id="result" class="hidden">
-    <h2>نتيجتك</h2>
-    <div id="scoreCircle">
-      <span id="scorePercent">0%</span>
-    </div>
-    <h3 id="scoreLevel"></h3>
-  </div>
+      <!-- باقي الأسئلة بنفس الشكل ... -->
+      
+      <div class="question">16. هل حاولت تقليل الاستخدام وفشلت؟
+        <select name="q16" required>
+          <option value="1">لا</option>
+          <option value="5">نعم</option>
+        </select>
+      </div>
 
+      <button type="submit">احسب النتيجة</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
