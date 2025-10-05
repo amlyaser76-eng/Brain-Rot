@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>اختبار تآكل الدماغ – BRS-E V4</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اختبار الدماغ – Brain Test</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="background"></div>
 
   <header>
+    <h1 id="siteName">اختبار الدماغ</h1>
     <div class="language-toggle" id="langToggle">
       <img src="assets/icons/globe.svg" alt="تبديل اللغة">
     </div>
   </header>
 
   <main>
-    <section class="test-description">
-      <h1>اختبار تآكل الدماغ – Brain Rot Scale (BRS-E V4)</h1>
-      <p>هذا الاختبار يقيّم مدى تأثير استخدام المحتوى الرقمي القصير على حياتك اليومية، التركيز، والعلاقات الاجتماعية. جاوب بصدق على جميع الأسئلة حسب تجربتك.</p>
+    <section class="intro">
+      <p id="introText">هذا الاختبار يقيس مدى تأثير المحتوى الرقمي على دماغك وسلوكك اليومي. جاوب بصدق لمعرفة النتيجة.</p>
     </section>
 
     <section class="user-info">
@@ -26,17 +26,16 @@
       <input type="tel" id="phone" placeholder="رقم الهاتف">
     </section>
 
-    <section class="progress-bar">
-      <div class="progress"></div>
-    </section>
+    <section class="test-questions" id="questions"></section>
 
-    <section class="test-questions" id="questions">
-      <!-- الأسئلة ستُملأ ديناميكيًا بواسطة script.js -->
-    </section>
+    <button id="submitTest">احسب النتيجة</button>
 
-    <button id="resetTest">إعادة الاختبار</button>
+    <section class="result" id="result" style="display:none;">
+      <h2 id="resultTitle">النتيجة</h2>
+      <p id="resultText"></p>
+    </section>
   </main>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
