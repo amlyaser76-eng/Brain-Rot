@@ -1,25 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>اختبار تعفن الدماغ</title>
-<style>
-body { font-family: Arial, sans-serif; margin:0; padding:0; background:url('brain-bg.jpg') no-repeat center center fixed; background-size:cover; color:#fff;}
-.container { max-width: 700px; margin:auto; background:rgba(0,0,0,0.7); padding:20px; border-radius:10px; min-height: 400px; }
-h1, h2 { text-align:center; }
-button { padding:10px 15px; font-size:16px; margin-top:10px; cursor:pointer; }
-input[type=text], input[type=tel] { width:100%; padding:10px; margin:5px 0; border-radius:5px; border:none; }
-.question { margin:15px 0; }
-.lang-toggle { position:absolute; top:20px; right:20px; font-size:24px; cursor:pointer; background:none; border:none; color:white;}
-.result { text-align:center; margin-top:20px; font-size:20px; font-weight:bold;}
-.section { display:none; }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <button class="lang-toggle" id="langToggle">🌐</button>
 <div class="container">
+<!-- البداية -->
 <div id="section0" class="section">
 <h1 id="title">اختبار تعفن الدماغ</h1>
 <p id="description">اختبر مدى تأثير استخدامك للمحتوى الرقمي القصير على تركيزك وسلوكك.</p>
@@ -27,124 +17,30 @@ input[type=text], input[type=tel] { width:100%; padding:10px; margin:5px 0; bord
 <input type="tel" id="phone" placeholder="رقم الهاتف">
 <button id="startBtn">ابدأ الاختبار</button>
 </div>
-
-<div id="section1" class="section"><h2>القسم 1 – أنماط الاستخدام</h2><div id="q1"></div><button class="nextBtn">التالي</button></div>
-<div id="section2" class="section"><h2>القسم 2 – الأعراض المعرفية</h2><div id="q2"></div><button class="nextBtn">التالي</button></div>
-<div id="section3" class="section"><h2>القسم 3 – التأثير النفسي والعاطفي</h2><div id="q3"></div><button class="nextBtn">التالي</button></div>
-<div id="section4" class="section"><h2>القسم 4 – التأثير السلوكي</h2><div id="q4"></div><button id="finishBtn">عرض النتيجة</button></div>
-<div id="resultSection" class="section"><div class="result" id="result"></div></div>
+<!-- الأقسام -->
+<div id="section1" class="section">
+<h2>القسم 1 – أنماط الاستخدام</h2>
+<div id="q1"></div>
+<button class="nextBtn">التالي</button>
 </div>
-
-<script>
-let currentLang='ar';
-const sections = ['section0','section1','section2','section3','section4','resultSection'];
-let currentSection=0;
-
-const questions_ar = {
-  q1: ["كم ساعة تقضيها يوميًا على TikTok / Reels / Shorts؟",
-       "هل تفتح هذه التطبيقات بشكل تلقائي (بدون تفكير)؟",
-       "أول ما تصحى من النوم، هل تفتح الموبايل؟",
-       "الموبايل يكون آخر شيء تقوم به قبل النوم؟",
-       "تمسك الموبايل مع الأهل والصحاب؟",
-       "تستخدم الموبايل لتتذكر أعياد الميلاد أو المذاكرة؟"],
-  q2: ["بعد مشاهدة محتوى قصير، هل تجد صعوبة في التركيز على الدراسة/العمل؟",
-       "هل تشعر أن ذاكرتك ضعفت أو تنسى بسرعة بعد فترات استخدام طويلة؟",
-       "هل تواجه صعوبة في قراءة كتاب أو مشاهدة فيلم طويل بسبب فقدان الصبر؟",
-       "هل تلاحظ أن انتباهك يتشتت بسهولة أكثر من قبل؟",
-       "هل تحفظ أرقام موبايلات أصحابك وأهلك؟"],
-  q3: ["هل تشعر بفراغ أو “دماغك فاضي” بعد ساعات من التصفح؟",
-       "هل يجيك إحساس بالذنب أو الندم بعد قضاء وقت طويل في المقاطع القصيرة؟",
-       "هل تجد صعوبة في الاستمتاع بأنشطة عادية مقارنة بالمتعة السريعة من الفيديوهات؟",
-       "هل تشعر بالقلق أو التوتر لو لم تفتح التطبيقات لفترة طويلة؟",
-       "هل تحب سماع أم كلثوم أو أغاني طويلة مقارنة بالأغاني القصيرة؟"],
-  q4: ["هل يؤثر استخدامك على نومك (تأخر نوم، نوم متقطع)؟",
-       "هل يؤثر على إنجازك الدراسي أو المهني؟",
-       "هل تجد نفسك تعطي الأولوية للمحتوى الرقمي على حساب علاقاتك أو نشاطاتك اليومية؟",
-       "هل حاولت تقليل الاستخدام وفشلت؟"]
-};
-
-const questions_en = {
-  q1: ["How many hours do you spend daily on TikTok / Reels / Shorts?",
-       "Do you open these apps automatically?",
-       "When you wake up, do you check your phone first?",
-       "Is your phone the last thing you use before sleep?",
-       "Do you use your phone with family and friends?",
-       "Do you use your phone to remember birthdays or study tasks?"],
-  q2: ["After watching short content, do you have difficulty focusing?",
-       "Do you feel your memory has weakened or you forget quickly?",
-       "Do you have trouble reading a book or watching a long movie?",
-       "Do you notice your attention scatters easily?",
-       "Do you memorize friends' and family's phone numbers?"],
-  q3: ["Do you feel empty or 'brain is blank' after scrolling?",
-       "Do you feel guilt or regret after spending long time on short videos?",
-       "Do you find it hard to enjoy normal activities compared to short videos?",
-       "Do you feel anxious or stressed if you don't open apps for a while?",
-       "Do you prefer listening to long songs like Umm Kulthum or short clips?"],
-  q4: ["Does phone use affect your sleep?",
-       "Does it affect your academic or work performance?",
-       "Do you prioritize digital content over relationships?",
-       "Have you tried reducing usage but failed?"]
-};
-
-function renderQuestions(sectionId, qArray){
-  const div=document.getElementById(sectionId);
-  div.innerHTML='';
-  qArray.forEach((q,i)=>{
-    const qDiv=document.createElement('div');
-    qDiv.className='question';
-    qDiv.innerHTML=`<p>${q}</p>`;
-    for(let j=1;j<=5;j++){
-      qDiv.innerHTML += `<label><input type="radio" name="${sectionId}_q${i}" value="${j}"> ${j}</label> `;
-    }
-    div.appendChild(qDiv);
-  });
-}
-
-function renderAllQuestions(){
-  renderQuestions('q1', currentLang==='ar'? questions_ar.q1 : questions_en.q1);
-  renderQuestions('q2', currentLang==='ar'? questions_ar.q2 : questions_en.q2);
-  renderQuestions('q3', currentLang==='ar'? questions_ar.q3 : questions_en.q3);
-  renderQuestions('q4', currentLang==='ar'? questions_ar.q4 : questions_en.q4);
-}
-
-function showSection(n){
-  sections.forEach(s=>document.getElementById(s).style.display='none');
-  document.getElementById(sections[n]).style.display='block';
-}
-
-document.getElementById('startBtn').addEventListener('click', ()=>{
-  renderAllQuestions();
-  showSection(1);
-});
-
-document.querySelectorAll('.nextBtn').forEach((btn,i)=>{
-  btn.addEventListener('click', ()=>{ showSection(i+2); });
-});
-
-document.getElementById('finishBtn').addEventListener('click', ()=>{
-  let total=0;
-  for(let s=1;s<=4;s++){
-    const qKeys = Object.keys(questions_ar)[s-1];
-    const qs = questions_ar[qKeys];
-    qs.forEach((_,i)=>{
-      const radios = document.getElementsByName(qKeys+'_q'+i);
-      for(const r of radios){ if(r.checked){ total+=parseInt(r.value); break; } }
-    });
-  }
-  let percent=Math.round((total/(20*5))*100);
-  let msg_ar = percent<33?'منخفض':percent<66?'متوسط':'مرتفع';
-  let msg_en = percent<33?'Low':percent<66?'Moderate':'High';
-  document.getElementById('result').innerText = currentLang==='ar'? `نتيجتك: ${percent}% (${msg_ar})`:`Your result: ${percent}% (${msg_en})`;
-  showSection(5);
-});
-
-document.getElementById('langToggle').addEventListener('click', ()=>{
-  currentLang = currentLang==='ar'?'en':'ar';
-  document.body.dir = currentLang==='ar'?'rtl':'ltr';
-  document.getElementById('title').innerText = currentLang==='ar'?'اختبار تعفن الدماغ':'Brain Rot Test';
-  document.getElementById('description').innerText = currentLang==='ar'?'اختبر مدى تأثير استخدامك للمحتوى الرقمي القصير على تركيزك وسلوكك.':'Check how short digital content affects your focus and behavior.';
-  renderAllQuestions();
-});
-</script>
+<div id="section2" class="section">
+<h2>القسم 2 – الأعراض المعرفية</h2>
+<div id="q2"></div>
+<button class="nextBtn">التالي</button>
+</div>
+<div id="section3" class="section">
+<h2>القسم 3 – التأثير النفسي والعاطفي</h2>
+<div id="q3"></div>
+<button class="nextBtn">التالي</button>
+</div>
+<div id="section4" class="section">
+<h2>القسم 4 – التأثير السلوكي</h2>
+<div id="q4"></div>
+<button id="finishBtn">عرض النتيجة</button>
+</div>
+<div id="resultSection" class="section">
+<div class="result" id="result"></div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
