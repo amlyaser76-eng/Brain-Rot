@@ -1,43 +1,63 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>اختبار Brain Rot – BRS</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>اختبار تآكل الدماغ 🧠 Brain Rot Scale</title>
+
+  <!-- الخط -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- أيقونة -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- التنسيق -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <img src="brain.png" alt="Brain" class="brain-bg">
-    <h1 id="title">مقياس Brain Rot – BRS</h1>
-    <p id="intro" class="intro">هذا الاختبار يساعدك على فهم تأثير المقاطع القصيرة على تركيزك وذاكرتك وصحتك النفسية.</p>
-    <button id="langToggle" class="lang-btn">EN</button>
-  </header>
+  <div class="overlay"></div>
 
-  <main class="container">
-    <section class="card">
-      <h2>البيانات الشخصية</h2>
-      <label>الاسم: <input type="text" id="name"></label>
-      <label>رقم الهاتف: <input type="tel" id="phone"></label>
-    </section>
+  <!-- زر تغيير اللغة -->
+  <button id="lang-toggle" class="lang-btn">🌐</button>
 
-    <form id="brsForm" class="card">
-      <h2>الأسئلة</h2>
-      <div id="questions"></div>
-      <button type="button" id="submitBtn" class="btn">احسب النتيجة</button>
-    </form>
+  <!-- الصفحة التعريفية -->
+  <section id="intro" class="page active">
+    <div class="intro-content">
+      <h1>🧠 اختبار تآكل الدماغ (Brain Rot Scale)</h1>
+      <p>اختبار غير طبي، الغرض منه التوعية حول أثر المحتوى القصير على التركيز والانتباه.</p>
+      <input type="text" id="user-name" placeholder="الاسم الكامل" />
+      <input type="tel" id="user-phone" placeholder="رقم الهاتف" />
+      <button id="start-btn" class="main-btn">ابدأ الاختبار</button>
+    </div>
+  </section>
 
-    <section id="resultCard" class="card" style="display:none;">
-      <h2>النتيجة</h2>
-      <div id="resultSummary"></div>
-      <div id="breakdown"></div>
-      <div id="plan"></div>
-    </section>
-  </main>
+  <!-- الصفحة الرئيسية للأسئلة -->
+  <section id="quiz" class="page">
+    <div id="progress-bar"></div>
+    <div class="question-container">
+      <h2 id="question-text"></h2>
+      <div class="options">
+        <button class="option" data-value="1">أبدًا</button>
+        <button class="option" data-value="2">نادرًا</button>
+        <button class="option" data-value="3">أحيانًا</button>
+        <button class="option" data-value="4">غالبًا</button>
+        <button class="option" data-value="5">دائمًا</button>
+      </div>
+      <div id="progress-circle">
+        <span id="progress-percent">0%</span>
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    <small>⚠️ هذا الاختبار استرشادي فقط ولا يغني عن استشارة الطبيب أو الأخصائي النفسي.</small>
-  </footer>
+  <!-- صفحة النتيجة -->
+  <section id="result" class="page">
+    <div class="result-content">
+      <h2>نتيجتك</h2>
+      <div id="score-display"></div>
+      <p id="score-text"></p>
+      <button id="retry-btn" class="main-btn">إعادة الاختبار</button>
+    </div>
+  </section>
 
   <script src="script.js"></script>
 </body>
